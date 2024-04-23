@@ -63,7 +63,7 @@ export function useAuthentication() {
     async function logout() {
         localStorage.removeItem("authenticationKey")
         if (authenticatedUser) {
-            return apiLogout(authenticatedUser.authenticationKey)
+            return apiLogout(authenticatedUser.authentication_key)   // For Users, it's not authenticationKey
                 .then(result => {
                     setAuthenticatedUser(null)
                     return Promise.resolve(result.message)

@@ -42,7 +42,7 @@ export default function UserBookingsList() {
                 }    
             })
         }    
-    }, [deletedBookingId])
+    }, [deletedBookingId, user])
 
     useEffect(() => {
         Bookings.deleteBookingById(selectedBookingId).then(result => {

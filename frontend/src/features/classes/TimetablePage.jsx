@@ -4,7 +4,7 @@ import Nav from "../../common/nav.jsx";
 
 export default function TimetablePage() {
     const days = []
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 14; i++) {
         let today = new Date()
         const day = new Date(today.setDate(today.getDate() + i)).toISOString().slice(0,10)
         days.push(day)
@@ -13,7 +13,7 @@ export default function TimetablePage() {
     return <>
         <Header />
         <div className="ml-6 mb-20">
-            <div className="badge mt-2 badge-neutral">Timetable for next 18 days</div>
+            <div className="badge mt-2 badge-neutral">Timetable for next 14 days</div>
             {days.map(day => <DailyActivitySection key={day} date={day}/>)} 
         </div>
         <Nav />
