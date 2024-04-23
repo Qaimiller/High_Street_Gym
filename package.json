@@ -1,0 +1,20 @@
+{
+  "name": "high_street_gym_zhang_474686777",
+  "version": "1.0.0",
+  "description": "High Street Gym fullstack project",
+  "author": "Cecilia Zhang",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "backend": "npm run -w backend start",
+    "frontend": "npm run -w frontend dev"
+  },
+  "dependencies": {
+    "fecha": "^4.2.3",
+    "moment": "^2.30.1",
+    "postcss": "^8.4.38"
+  }
+}

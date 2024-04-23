@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE trainers-upload [
+    <!ELEMENT trainers-upload (trainers)>
+    <!ATTLIST trainers-upload operation (insert|update) "insert">
+    <!ELEMENT trainers (trainer+)>
+    <!ELEMENT trainer (id?, email, password, role, phone, first_name, last_name, address)>
+    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT email (#PCDATA)>
+    <!ELEMENT password (#PCDATA)>
+    <!ELEMENT role (#PCDATA)>
+    <!ELEMENT phone (#PCDATA)>
+    <!ELEMENT first_name (#PCDATA)>
+    <!ELEMENT last_name (#PCDATA)>
+    <!ELEMENT address (#PCDATA)>
+]>
+<trainers-upload operation="insert">
+    <trainers>
+        <trainer>
+            <email>trainer1@gmail.com</email>
+            <password>abc123</password>
+            <role>trainer</role>
+            <phone>0400123456</phone>
+            <first_name>Trainer</first_name>
+            <last_name>New</last_name>
+            <address>South Brisbane</address>
+        </trainer>
+        <trainer>
+            <email>trainer2@gmail.com</email>
+            <password>abc123</password>
+            <role>trainer</role>
+            <phone>0400123456</phone>
+            <first_name>Trainer</first_name>
+            <last_name>New</last_name>
+            <address>South Brisbane</address>
+        </trainer>
+    </trainers>
+</trainers-upload>
+
+<!-- <trainers-upload operation="update">
+    <trainers>
+        <trainer>
+            <id>2</id>
+            <email>jack@gmail.com</email>
+            <password>abc123</password>
+            <role>trainer</role>
+            <phone>0400123456</phone>
+            <first_name>Jack1</first_name>
+            <last_name>Update</last_name>
+            <address>South Brisbane</address>
+        </trainer>
+        <trainer>
+            <id>3</id>
+            <email>jane@gmail.com</email>
+            <password>abc123</password>
+            <role>trainer</role>
+            <phone>0400123456</phone>
+            <first_name>Jane</first_name>
+            <last_name>Update</last_name>
+            <address>South Brisbane</address>
+        </trainer>
+    </trainers>
+</trainers-upload> -->
