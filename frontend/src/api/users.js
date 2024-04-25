@@ -19,7 +19,7 @@ export async function registerUser(userData) {
 
 export async function getUserNameById(userId) {
     const response = await fetch(
-        API_URL + `/users/${userId}`,
+        API_URL + `/users/id/${userId}`,
         {
             method: "GET",
             headers: {
@@ -35,6 +35,27 @@ export async function getUserNameById(userId) {
     } else {
         return null
         // throw new Error("404 NOT FOUND")
+    }    
+}
+
+
+
+export async function getUserById(userId) {
+    const response = await fetch(
+        API_URL + `/users/${userId}`,
+        {
+            method: "GET",
+            headers: {
+                'Content-Type': "application/json"
+            }
+        }
+    )
+    const APIResponseObject = await response.json()
+    const user = APIResponseObject.user
+    if (user) {
+        return user
+    } else {
+        return null
     }    
 }
 
@@ -106,4 +127,27 @@ export async function getUserByAuthenticationKey(authKey) {
     } else {
         return null
     }
+}
+
+
+
+export async function updateUser(user) {
+    const response = await fetch(
+        API_URL + `/users/${user.id}`,
+        {
+            method: "PATCH",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify({user})
+        }
+    )
+    const APIResponseObject = await response.json()
+    console.log(APIResponseObject)
+    return APIResponseObject
+    // if (APIResponseObject.status == 200) {
+    //     return APIResponseObject.user
+    // } else {
+    //     return null
+    // }
 }

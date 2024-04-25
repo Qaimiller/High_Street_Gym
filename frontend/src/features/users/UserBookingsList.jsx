@@ -5,7 +5,7 @@ import * as Bookings from "../../api/bookings.js"
 import * as Classes from "../../api/classes.js"
 import * as Activities from "../../api/activities.js"
 import * as Locations from "../../api/locations.js"
-import Nav from "../../common/nav.jsx"
+import Nav from "../../common/Nav.jsx"
 import Header from "../../common/Header.jsx"
 import { useAuthentication } from "../authentication.jsx"
 
@@ -54,29 +54,31 @@ export default function UserBookingsList() {
 
     return <>
         <Header />
-        <div className="text-xl flex justify-center mb-2">My Bookings</div>
-        <table className="table mb-10">
-            <thead>
-                <tr>
-                    <th>Activity</th>
-                    <th>Trainer</th>
-                    <th>Location</th>
-                    <th>Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                {bookings.map(booking => 
-                    <tr key={booking.id} className="hover">
-                        <td>{booking.activityName}</td>
-                        <td>{booking.trainerName}</td>
-                        <td>{booking.locationName}</td>
-                        <td>{booking.datetime}</td>
-                        <td><button className="btn btn-sm"
-                        onClick={() => setSelectedBookingId(booking.id)}>X</button></td>    
+        <div className="flex-col">
+            <div className="badge  badge-outline badge-primary text-l ml-2">My Bookings</div>
+            <table className="table mb-40">
+                <thead>
+                    <tr>
+                        <th>Activity</th>
+                        <th>Trainer</th>
+                        <th>Location</th>
+                        <th>Time</th>
                     </tr>
-                )}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {bookings.map(booking => 
+                        <tr key={booking.id} className="hover">
+                            <td>{booking.activityName}</td>
+                            <td>{booking.trainerName}</td>
+                            <td>{booking.locationName}</td>
+                            <td>{booking.datetime}</td>
+                            <td><button className="btn btn-outline btn-sm btn-primary"
+                            onClick={() => setSelectedBookingId(booking.id)}>X</button></td>    
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
         <Nav />
     </>
 }

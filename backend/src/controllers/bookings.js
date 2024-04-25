@@ -2,9 +2,9 @@ import * as Bookings from "../models/bookings.js"
 import { Router } from "express"
 import * as fecha from "fecha"
 
-const bookingRouter = Router()
+const bookingController = Router()
 
-bookingRouter.post("/create", (req, res) => {
+bookingController.post("/create", (req, res) => {
     const bookingData = req.body
     const booking = Bookings.newBooking(
         null,
@@ -32,7 +32,7 @@ bookingRouter.post("/create", (req, res) => {
 
 
 
-bookingRouter.get("/userId/:userId", (req, res) => {
+bookingController.get("/userId/:userId", (req, res) => {
     const userId = req.params.userId
     Bookings.getByUserId(userId).then(result => {
         // the result can be empty array
@@ -52,7 +52,7 @@ bookingRouter.get("/userId/:userId", (req, res) => {
 
 
 
-bookingRouter.delete("/id/:id", (req, res) => {
+bookingController.delete("/id/:id", (req, res) => {
     const bookingId = req.params.id
     Bookings.deleteById(bookingId).then(result => {
         res.status(200).json({
@@ -70,4 +70,4 @@ bookingRouter.delete("/id/:id", (req, res) => {
 })
 
 
-export default bookingRouter
+export default bookingController

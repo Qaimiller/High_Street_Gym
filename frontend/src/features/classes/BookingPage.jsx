@@ -6,7 +6,7 @@ import * as Activities from "../../api/activities.js"
 import * as Locations from "../../api/locations.js"
 import * as Users from "../../api/users.js"
 import * as Bookings from "../../api/bookings.js"
-import Nav from "../../common/nav.jsx"
+import Nav from "../../common/Nav.jsx"
 import Header from "../../common/Header.jsx"
 
 export default function BookingPage() {
@@ -99,11 +99,14 @@ export default function BookingPage() {
 
     return <>
         <Header />
-        <div className="m-2">
-            <h2 className="text-xl">Create Booking</h2>
-            <h3 className="badge badge-primary m-2">{activity.name ? activity.name + "(" : ""}
-                {activity.duration ? activity.duration + "min)" : ""}</h3>
-            <h4 className="badge badge-neutral">{moment(date).format('dddd')} {moment(date).format('ll')}</h4>
+        <div className="mb-40">
+            <h2 className="text-xl text-center mb-5">Create Booking</h2>
+            <div className="text-center mb-5">
+                <h3 className="badge badge-primary m-2">{activity.name ? activity.name + "(" : ""}
+                    {activity.duration ? activity.duration + "min)" : ""}</h3>
+                <h4 className="badge badge-neutral">{moment(date).format('dddd')} {moment(date).format('ll')}</h4>
+            </div>
+            
             <form className="grid justify-evenly gap-2" onSubmit={onBookingSubmit}>
                 <select className="select select-bordered" defaultValue={"Locations"}
                     onChange={(e) => narrowDownClassesByLocation(classes, e.target.value)}>

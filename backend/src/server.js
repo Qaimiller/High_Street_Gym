@@ -3,9 +3,10 @@ import cors from "cors"
 import fileUpload from "express-fileupload"
 import userController from "./controllers/users.js"
 import classController from "./controllers/classes.js"
-import locationRouter from "./controllers/locations.js"
-import activityRouter from "./controllers/activities.js"
-import bookingRouter from "./controllers/bookings.js"
+import locationController from "./controllers/locations.js"
+import activityController from "./controllers/activities.js"
+import bookingController from "./controllers/bookings.js"
+import blogController from "./controllers/blogs.js"
 
 const port = 8080
 const app = express()
@@ -26,9 +27,10 @@ app.use(fileUpload({
 // Import and use the routes defined by controllers
 app.use("/users", userController)
 app.use("/classes", classController)
-app.use("/locations", locationRouter)
-app.use("/activities", activityRouter)
-app.use("/bookings", bookingRouter)
+app.use("/locations", locationController)
+app.use("/activities", activityController)
+app.use("/bookings", bookingController)
+app.use("/blogs", blogController)
 
 // Start listening for API requests
 app.listen(

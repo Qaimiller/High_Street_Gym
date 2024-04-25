@@ -32,7 +32,7 @@ export default function DailyActivitySection({date}) {
             
     }, [])
 
-    return <>
+    return <div>
         <div>
             <h2 className="card-title mt-8">{day + " - " + dateString}</h2>
         </div>
@@ -40,8 +40,8 @@ export default function DailyActivitySection({date}) {
             {activities.map(item => 
                 <button 
                     onClick={() => navigate("/booking/" + date + "/" + item.id)}
-                    className="btn block mt-3" key={item.name}>{item.name}</button>
+                    className="btn btn-outline btn-primary block mt-3" key={item.name}>{item.name}</button>
             )}
         </div>
-    </>
+    </div>
 }

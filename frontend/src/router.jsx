@@ -5,9 +5,18 @@ import BookingPage from "./features/classes/BookingPage";
 import LoginPage from "./features/users/LoginPage";
 import UserBookingsList from "./features/users/UserBookingsList";
 import XMLUploadPage from "./features/xml/XMLUploadPage";
+import ProfilePage from "./features/users/ProfilePage";
+import BlogCreatePage from "./features/blogs/BlogCreatePage";
+import HomePage from "./features/HomePage";
+import { SingleBlogCard } from "./common/SingleBlogCard";
+import BlogListPage from "./features/blogs/BlogListPage";
+
 
 const router = createBrowserRouter([
     {
+        path: "/",
+        element: <HomePage />
+    }, {
         path: "/register",
         element: <RegisterPage />
     }, {
@@ -25,6 +34,18 @@ const router = createBrowserRouter([
     }, {
         path: "/upload",
         element: <XMLUploadPage />
+    }, {
+        path: "/profile",
+        element: <ProfilePage />
+    }, {
+        path: "/blog_create",
+        element: <BlogCreatePage />
+    }, {
+        path: "/card",
+        element: <SingleBlogCard />
+    }, {
+        path: "/blogs",
+        element: <BlogListPage />
     }
 ])
 

@@ -1,9 +1,9 @@
 import * as Activities from "../models/activities.js"
 import { Router } from "express"
 
-const activityRouter = Router()
+const activityController = Router()
 
-activityRouter.get("/:id", (req, res) => {
+activityController.get("/:id", (req, res) => {
     const activityId = req.params.id
     Activities.getById(activityId).then(result => {
         if (result) {
@@ -27,4 +27,4 @@ activityRouter.get("/:id", (req, res) => {
     })
 })
 
-export default activityRouter
+export default activityController

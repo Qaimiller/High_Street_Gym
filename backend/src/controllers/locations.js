@@ -1,9 +1,9 @@
 import { Router } from "express"
 import * as Locations from "../models/locations.js"
 
-const locationRouter = Router()
+const locationController = Router()
 
-locationRouter.get("/", (req, res) => {
+locationController.get("/", (req, res) => {
     Locations.getAll().then(result => {
         res.status(200).json({
             status: 200,
@@ -15,7 +15,7 @@ locationRouter.get("/", (req, res) => {
 
 
 
-locationRouter.get("/:id", (req, res) => {
+locationController.get("/:id", (req, res) => {
     const locationId = req.params.id
     Locations.getById(locationId).then(result => {
         if (result) {
@@ -39,4 +39,4 @@ locationRouter.get("/:id", (req, res) => {
     })
 })
 
-export default locationRouter
+export default locationController

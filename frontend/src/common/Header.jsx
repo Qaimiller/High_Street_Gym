@@ -1,6 +1,10 @@
 export default function Header() {
-    return <div>
-        <span className="navbar text-2xl justify-center">High Street Gym</span>
+    return <div className="navbar flex-col">
+        <div className="navbar-center">
+            <a className="btn btn-ghost text-2xl" href="/">
+                High Street Gym
+            </a>
+        </div>
         <div className="divider m-0"></div>
     </div>
 }

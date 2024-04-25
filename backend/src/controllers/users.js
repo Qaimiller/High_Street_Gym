@@ -52,7 +52,7 @@ userController.post("/register", async (req, res) => {
 
 
 
-userController.get("/:id", (req, res) => {
+userController.get("/id/:id", (req, res) => {
     const userId = req.params.id
     Users.getById(userId).then(result => {
         if (result) {
@@ -175,6 +175,59 @@ userController.post("/logout", (req, res) => {
             message: "No X-AUTH-KEY found"
         })
     }
+})
+
+
+
+userController.patch("/:id", async (req, res) => {
+    const userId = req.params.id
+    const userData = req.body.user
+
+    const userById = await Users.getById(userId)
+    const userByEmail = await Users.getByEmail(userData.email)
+
+    if (userById && userByEmail && userById != userByEmail) {
+        res.status(409).json({
+            status: 409,
+            message: "Email has been used"
+        })
+        return
+    }
+    // TODO: Implement request validation
+
+    // TODO: Enforce that users can only update their own user details. Do we have to?
+
+    // Hash the password if it isn't already hashed
+    if (userData.password && !userData.password.startsWith("$2a")) {
+        userData.password = bcrypt.hashSync(userData.password)
+    }
+
+    const user = Users.newUser(
+        userId,
+        userData.email,
+        userData.password,
+        userData.role,
+        userData.phone,
+        userData.first_name,
+        userData.last_name,
+        userData.address,
+        userData.authentication_key
+    )
+
+    Users.update(user).then(result => {
+        res.status(200).json({
+            status: 200,
+            message: "Update successful",
+            user: result
+        })
+    }).catch(error => {
+        res.status(500).json({
+            status: 500,
+            message: "Failed to update user",
+            error: error
+        })
+    })
+
 })
 
 

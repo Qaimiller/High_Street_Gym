@@ -47,15 +47,15 @@ export function XMLUploader({ onUploadSuccess, uploadUrl, disabled = false }) {
         <form onSubmit={uploadFile}>
             <div className="form-control m-2">
                 <label className="label">
-                    <span className="text-lg">XML File Import</span>
+                    <span className="text-md">XML File Import</span>
                 </label>
                 <div className="">
                     <input 
                         ref={uploadInputRef}
                         type="file"
                         disabled={disabled}
-                        className="file-input file-input-bordered file-input-primary mt-2 mr-2" />
-                    <button disabled={disabled} className="btn btn-secondary mt-2">Upload</button>
+                        className="file-input file-input-bordered file-input-primary mr-2" />
+                    <button disabled={disabled} className="btn btn-secondary">Upload</button>
                 </div>
                 <label className="label">
                     <span className="label-text-alt">{statusMessage}</span>

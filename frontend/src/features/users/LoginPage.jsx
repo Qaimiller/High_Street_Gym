@@ -42,47 +42,39 @@ export default function LoginPage() {
         // })
     }
 
-    // function onLogoutSubmit(e) {
-    //     e.preventDefault()
-    //     Users.logout(localStorage.getItem("authenticationKey")).then(result => {
-    //         setStatusMessage(result)
-    //     })
-    // }
-
-    return <div className="flex justify-center">
-        <form className="flex-grow max-w-md m-4">
-            <h2 className="text-4xl mb-8 text-center">High Street Gym</h2>
-            <h2 className="text-3xl mb-8 text-center">Login</h2>
-            <div className="form-control">
-                <label className="label">
-                    <span className="label-text">Email:</span>
-                </label>
-                <input type="email" 
-                    placeholder="jack@gmail.com"
-                    className="input input-bordered"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                />
-                <label className="label">
-                    <span className="label-text">Password:</span>
-                </label>
-                <input type="password"
-                    placeholder="password"
-                    className="input input-bordered"
-                    value={formData.password}
-                    onChange={(e) => setFormData({...formData, password: e.target.value})}
-                />
-                <button className="btn btn-primary mt-4"
-                    onClick={(e) => onLoginSubmit(e)}>Login</button>
-                <button className="btn btn-secondary mt-4"
-                    onClick={(e) => navigate("/register")}>Sign up</button>
-                <label className="label">
-                    <span className="label-text-alt">{statusMessage}</span>
-                </label>
-
-                {/* <button onClick={(e) => onLogoutSubmit(e)}>Logout</button>
-                <span></span> */}
-            </div>
-        </form>
+    return <div className="flex h-screen">
+        <div className="m-auto">
+            <form className="flex-col max-w-md">
+                <h2 className="text-4xl font-bold mb-8 text-center">High Street Gym</h2>
+                <h2 className="text-3xl mb-4 text-center">Login</h2>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Email:</span>
+                    </label>
+                    <input type="email" 
+                        placeholder="jack@gmail.com"
+                        className="input input-bordered"
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    />
+                    <label className="label">
+                        <span className="label-text">Password:</span>
+                    </label>
+                    <input type="password"
+                        placeholder="password"
+                        className="input input-bordered"
+                        value={formData.password}
+                        onChange={(e) => setFormData({...formData, password: e.target.value})}
+                    />
+                    <button className="btn btn-primary mt-4"
+                        onClick={(e) => onLoginSubmit(e)}>Login</button>
+                    <button className="btn btn-secondary mt-4"
+                        onClick={(e) => navigate("/register")}>Sign up</button>
+                    <label className="label">
+                        <span className="label-text-alt">{statusMessage}</span>
+                    </label>
+                </div>
+            </form>
+        </div>       
     </div>
 }
