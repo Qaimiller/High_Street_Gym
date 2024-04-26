@@ -59,7 +59,7 @@ CREATE TABLE `blog_posts` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_blog_posts_users_idx` (`user_id`),
   CONSTRAINT `fk_blog_posts_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `blog_posts` (
 
 LOCK TABLES `blog_posts` WRITE;
 /*!40000 ALTER TABLE `blog_posts` DISABLE KEYS */;
-INSERT INTO `blog_posts` VALUES (13,'2024-04-25 18:58:28',2,'my first blog','hello everybody\n'),(14,'2024-04-25 22:28:08',3,'Hello I\'m Jane','Hi everyone, hope you are enjoying your day!'),(15,'2024-04-25 22:29:38',3,'I love Yoga','The Yoga class is amazing!'),(16,'2024-04-25 22:30:28',3,'I love Pilate','The Pilate class is awesome!'),(17,'2024-04-25 22:31:28',2,'Jack is here','Say hi to everyone!'),(18,'2024-04-25 22:33:07',2,'Guess what','I nearly hit my goal!');
+INSERT INTO `blog_posts` VALUES (13,'2024-04-25 18:58:28',2,'my first blog','hello everybody\n'),(14,'2024-04-25 22:28:08',3,'Hello I\'m Jane','Hi everyone, hope you are enjoying your day!'),(15,'2024-04-25 22:29:38',3,'I love Yoga','The Yoga class is amazing!'),(16,'2024-04-25 22:30:28',3,'I love Pilate','The Pilate class is awesome!'),(17,'2024-04-25 22:31:28',2,'Jack is here','Say hi to everyone!'),(18,'2024-04-25 22:33:07',2,'Guess what','I nearly hit my goal!'),(19,'2024-04-26 19:12:28',34,'Hi ','Hi everyone, I just signed up the new account!'),(20,'2024-04-26 22:25:06',2,'Try a new blog','If it can lead back to list');
 /*!40000 ALTER TABLE `blog_posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `bookings` (
   KEY `fk_bookings_classes_idx` (`class_id`),
   CONSTRAINT `fk_bookings_classes` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_bookings_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE `bookings` (
 
 LOCK TABLES `bookings` WRITE;
 /*!40000 ALTER TABLE `bookings` DISABLE KEYS */;
-INSERT INTO `bookings` VALUES (1,7,1,'2024-04-12 07:27:44'),(2,7,2,'2024-04-12 17:33:20'),(3,2,3,'2024-04-19 16:47:58'),(4,2,2,'2024-04-19 17:03:39'),(5,2,19,'2024-04-19 17:05:40'),(6,2,15,'2024-04-19 17:06:09'),(7,2,15,'2024-04-19 17:06:15'),(8,2,15,'2024-04-19 17:06:17'),(12,2,8,'2024-04-20 23:03:56'),(15,1,28,'2024-04-23 17:35:55'),(16,2,5,'2024-04-23 17:58:55'),(19,2,29,'2024-04-24 17:00:05');
+INSERT INTO `bookings` VALUES (1,7,1,'2024-04-12 07:27:44'),(2,7,2,'2024-04-12 17:33:20'),(3,2,3,'2024-04-19 16:47:58'),(4,2,2,'2024-04-19 17:03:39'),(5,2,19,'2024-04-19 17:05:40'),(6,2,15,'2024-04-19 17:06:09'),(12,2,8,'2024-04-20 23:03:56'),(15,1,28,'2024-04-23 17:35:55'),(16,2,5,'2024-04-23 17:58:55'),(19,2,29,'2024-04-24 17:00:05'),(20,34,15,'2024-04-26 19:08:44'),(21,34,23,'2024-04-26 19:09:00'),(22,34,63,'2024-04-26 19:09:48'),(23,1,81,'2024-04-26 19:15:51'),(25,2,24,'2024-04-26 22:25:36'),(26,34,94,'2024-04-26 22:55:15');
 /*!40000 ALTER TABLE `bookings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,7 +124,7 @@ CREATE TABLE `classes` (
   CONSTRAINT `fk_classes_activities` FOREIGN KEY (`activity_id`) REFERENCES `activities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_classes_location` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_classes_users` FOREIGN KEY (`trainer_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +133,7 @@ CREATE TABLE `classes` (
 
 LOCK TABLES `classes` WRITE;
 /*!40000 ALTER TABLE `classes` DISABLE KEYS */;
-INSERT INTO `classes` VALUES (1,'2024-04-25 05:30:00',2,5,5),(2,'2024-04-25 06:20:00',2,2,6),(3,'2024-04-25 06:20:00',2,1,2),(4,'2024-04-25 09:45:00',2,1,2),(5,'2024-04-25 05:15:00',2,6,5),(6,'2024-04-25 09:40:00',2,3,6),(7,'2024-04-26 08:00:00',2,4,3),(8,'2024-04-29 09:00:00',2,7,4),(9,'2024-04-30 10:00:00',2,1,2),(10,'2024-04-25 05:30:00',2,5,6),(11,'2024-04-25 06:20:00',2,2,5),(12,'2024-04-25 08:30:00',2,1,5),(13,'2024-04-25 09:45:00',2,1,5),(14,'2024-04-26 05:15:00',2,6,6),(15,'2024-04-26 09:40:00',2,3,5),(16,'2024-04-29 08:00:00',2,4,4),(17,'2024-04-30 09:00:00',2,7,3),(18,'2024-05-01 10:00:00',2,1,5),(19,'2024-04-25 05:30:00',1,5,3),(20,'2024-04-25 06:20:00',1,2,4),(21,'2024-04-25 08:30:00',1,1,3),(22,'2024-04-25 09:45:00',1,1,3),(23,'2024-04-26 05:15:00',1,6,3),(24,'2024-04-26 09:40:00',1,3,4),(25,'2024-04-29 08:00:00',1,4,5),(26,'2024-04-30 09:00:00',1,7,6),(27,'2024-05-01 10:00:00',1,1,5),(28,'2024-04-25 05:30:00',1,5,4),(29,'2024-04-25 06:20:00',1,2,3),(30,'2024-04-25 08:30:00',1,1,4),(31,'2024-04-25 09:45:00',1,1,4),(32,'2024-04-26 05:15:00',1,6,4),(33,'2024-04-26 09:40:00',1,3,3),(34,'2024-04-29 08:00:00',1,4,6),(35,'2024-04-30 09:00:00',1,7,5),(36,'2024-05-01 10:00:00',1,1,6),(43,'2024-05-06 05:30:00',2,5,5),(44,'2024-05-06 06:20:00',2,2,6),(45,'2024-05-06 06:20:00',2,1,2),(46,'2024-05-06 09:45:00',2,1,2),(47,'2024-05-06 05:15:00',2,6,5),(48,'2024-05-06 09:40:00',2,3,6),(49,'2024-04-27 06:20:00',2,1,2),(50,'2024-04-27 05:15:00',2,6,5),(51,'2024-04-27 06:20:00',2,2,6),(52,'2024-04-27 09:45:00',2,1,2),(53,'2024-04-27 05:30:00',2,5,5),(54,'2024-04-27 09:40:00',2,3,6),(55,'2024-04-28 05:30:00',2,5,5),(56,'2024-04-28 06:20:00',2,1,2),(57,'2024-04-28 06:20:00',2,2,6),(58,'2024-04-28 09:45:00',2,1,2),(59,'2024-04-28 05:15:00',2,6,5),(60,'2024-04-28 09:40:00',2,3,6),(61,'2024-05-02 05:30:00',2,5,5),(62,'2024-05-02 06:20:00',2,2,6),(63,'2024-05-02 06:20:00',2,1,2),(64,'2024-05-02 09:45:00',2,1,2),(65,'2024-05-02 05:15:00',2,6,5),(66,'2024-05-02 09:40:00',2,3,6),(67,'2024-05-03 05:30:00',2,5,5),(68,'2024-05-03 06:20:00',2,1,2),(69,'2024-05-03 06:20:00',2,2,6),(70,'2024-05-03 09:45:00',2,1,2),(71,'2024-05-03 09:40:00',2,3,6),(72,'2024-05-03 05:15:00',2,6,5);
+INSERT INTO `classes` VALUES (1,'2024-04-25 05:30:00',2,5,5),(2,'2024-04-25 06:20:00',2,2,6),(3,'2024-04-25 06:20:00',2,1,2),(4,'2024-04-25 09:45:00',2,1,2),(5,'2024-04-25 05:15:00',2,6,5),(6,'2024-04-25 09:40:00',2,3,6),(7,'2024-04-26 08:00:00',2,4,3),(8,'2024-04-29 09:00:00',2,7,4),(9,'2024-04-30 10:00:00',2,1,2),(10,'2024-04-25 05:30:00',2,5,6),(11,'2024-04-25 06:20:00',2,2,5),(12,'2024-04-25 08:30:00',2,1,5),(13,'2024-04-25 09:45:00',2,1,5),(14,'2024-04-26 05:15:00',2,6,6),(15,'2024-04-26 09:40:00',2,3,5),(16,'2024-04-29 08:00:00',2,4,4),(17,'2024-04-30 09:00:00',2,7,3),(18,'2024-05-01 10:00:00',2,1,5),(19,'2024-04-25 05:30:00',1,5,3),(20,'2024-04-25 06:20:00',1,2,4),(21,'2024-04-25 08:30:00',1,1,3),(22,'2024-04-25 09:45:00',1,1,3),(23,'2024-04-26 05:15:00',1,6,3),(24,'2024-04-26 09:40:00',1,3,4),(25,'2024-04-29 08:00:00',1,4,5),(26,'2024-04-30 09:00:00',1,7,6),(27,'2024-05-01 10:00:00',1,1,5),(28,'2024-04-25 05:30:00',1,5,4),(29,'2024-04-25 06:20:00',1,2,3),(30,'2024-04-25 08:30:00',1,1,4),(31,'2024-04-25 09:45:00',1,1,4),(32,'2024-04-26 05:15:00',1,6,4),(33,'2024-04-26 09:40:00',1,3,3),(34,'2024-04-29 08:00:00',1,4,6),(35,'2024-04-30 09:00:00',1,7,5),(36,'2024-05-01 10:00:00',1,1,6),(43,'2024-05-06 05:30:00',2,5,5),(44,'2024-05-06 06:20:00',2,2,6),(45,'2024-05-06 06:20:00',2,1,2),(46,'2024-05-06 09:45:00',2,1,2),(47,'2024-05-06 05:15:00',2,6,5),(48,'2024-05-06 09:40:00',2,3,6),(49,'2024-04-27 06:20:00',2,1,2),(50,'2024-04-27 05:15:00',2,6,5),(51,'2024-04-27 06:20:00',2,2,6),(52,'2024-04-27 09:45:00',2,1,2),(53,'2024-04-27 05:30:00',2,5,5),(54,'2024-04-27 09:40:00',2,3,6),(55,'2024-04-28 05:30:00',2,5,5),(56,'2024-04-28 06:20:00',2,1,2),(57,'2024-04-28 06:20:00',2,2,6),(58,'2024-04-28 09:45:00',2,1,2),(59,'2024-04-28 05:15:00',2,6,5),(60,'2024-04-28 09:40:00',2,3,6),(61,'2024-05-02 05:30:00',2,5,5),(62,'2024-05-02 06:20:00',2,2,6),(63,'2024-05-02 06:20:00',2,1,2),(64,'2024-05-02 09:45:00',2,1,2),(65,'2024-05-02 05:15:00',2,6,5),(66,'2024-05-02 09:40:00',2,3,6),(67,'2024-05-03 05:30:00',2,5,5),(68,'2024-05-03 06:20:00',2,1,2),(69,'2024-05-03 06:20:00',2,2,6),(70,'2024-05-03 09:45:00',2,1,2),(71,'2024-05-03 09:40:00',2,3,6),(72,'2024-05-03 05:15:00',2,6,5),(73,'2024-05-07 06:20:00',2,2,6),(74,'2024-05-07 05:30:00',2,5,5),(75,'2024-05-07 09:45:00',2,1,2),(76,'2024-05-07 06:20:00',2,1,2),(77,'2024-05-07 09:40:00',2,3,6),(78,'2024-05-07 05:15:00',2,6,5),(79,'2024-05-04 05:30:00',2,5,5),(80,'2024-05-04 06:20:00',2,2,6),(81,'2024-05-04 06:20:00',2,1,2),(82,'2024-05-04 09:45:00',2,1,2),(83,'2024-05-04 05:15:00',2,6,5),(84,'2024-05-04 09:40:00',2,3,6),(85,'2024-05-04 05:15:00',1,6,5),(86,'2024-05-04 09:40:00',1,3,6),(87,'2024-05-04 06:20:00',1,2,6),(88,'2024-05-04 05:30:00',1,5,5),(89,'2024-05-04 06:20:00',1,1,2),(90,'2024-05-04 09:45:00',1,1,2),(91,'2024-05-02 05:30:00',1,5,6),(92,'2024-05-02 06:20:00',1,2,5),(93,'2024-05-02 06:20:00',1,1,3),(94,'2024-05-02 09:45:00',1,1,3),(95,'2024-05-02 05:15:00',1,6,6),(96,'2024-05-02 09:40:00',1,3,5);
 /*!40000 ALTER TABLE `classes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,7 +182,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id_UNIQUE` (`id`),
   UNIQUE KEY `user_email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -191,7 +191,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'cecilia@gmail.com','$2a$10$bWdpw2PMypVXfabbSAe3EePh8P8.HQTLwb.gDlyzUsLj7VZ/AVTe.','manager','0400123456','Cecilia','Zhang','South Brisbane, 4001',NULL),(2,'jack@gmail.com','$2a$10$vtVH.9JHIyidWptMQNsOVOHhKh0KRB6sZr.NAE0P1jI9XmfSFaEWS','trainer','0400000002','Jack','Doe','Brisbane City 4000',NULL),(3,'jane@gmail.com','$2a$10$qqIUtwW7kz9lrKlo/AR9leanYx2jwqhr/x3uiYSZubXyjyk5keAh6','trainer',NULL,'Jane','',NULL,NULL),(4,'jess@gmail.com','$2a$10$uEpodYzTI9g88TGzmeLVIeyR3X4aN4n//EForHmHqrVGWGL.B/3qu','trainer',NULL,'Jess',NULL,NULL,NULL),(5,'olivia@gmail.com','$2a$10$HNlhZyj7G73FOnuwmzHq3ebpGk7OS5t9CtLey5qYhOWdp1/T.lf8G','trainer',NULL,'Olivia',NULL,NULL,NULL),(6,'sharon@gmail.com','$2a$10$xGFN0hgyD4H0B4bmj5YwvO3kXjawToddWEKQvBwfmcyyA7q.Cu5c.','trainer',NULL,'Sharon',NULL,NULL,NULL),(7,'jill1@gmail.com','$2a$10$rFOldrG.t2hzCt6f6HJAwOuyWe.LXxGZHXKdkQt826rQnuXtdCd9a','member',NULL,'Jill','Doe',NULL,'8b727ffc-b498-4be8-a53e-57c8701c619e'),(9,'jill2@gmail.com','$2a$10$8MJw4nLQHzktpC8t7gzx9uLYpbeH02PuxjYkvutkU7dNkQFWuKYTO','member',NULL,'Jill','Smith',NULL,NULL),(12,'jack2@gmail.com','$2a$10$G3.y4fXonH1r2FxNQ.om3.DAB0RJ0gl/zaHVgFxdmt59FUyIwA35e','member',NULL,NULL,NULL,NULL,NULL),(13,'jack3@gmail.com','$2a$10$ZmfOQHm3MzOI4clPOeooo.Y6K4GWt.rW27KcDnUcKrMB6makij4Qu','member',NULL,NULL,NULL,NULL,'d23f42c1-188a-416c-84a0-f50ed13aefd8'),(14,'jack4@gmail.com','$2a$10$73RFInddqcAky7Q1gfu/E.CDVBIcXsQo3iJX5wIhJLgyZx5PSOzW6','member',NULL,NULL,NULL,NULL,'d0c9e881-63ed-41b5-acce-6f3799ab2331'),(15,'jack5@gmail.com','$2a$10$sxWM5c506VdmMWIGMXw2vuvfkt7TTvP/yxmHv.lA2QAAQtFGefmDK','member',NULL,NULL,NULL,NULL,NULL),(20,'test@gmail.com','$2a$10$CM5eavOLOhuJlx.1ccHsS.JSzWx6dVaP6PMafak0EaNdYvCDZ2q0O','member',NULL,NULL,NULL,NULL,NULL),(27,'register@gmail.com','$2a$10$FiKukq3BWzyjhqEFJKHeZ.s8SAJoUCXnGbmpoQKeT/TY6wa4FdEg6','member',NULL,NULL,NULL,NULL,NULL),(28,'register2@gmail.com','$2a$10$REfgzMpS8u.zbGQtFf9BSOK0Pa1d9eE1dDR6muBRxgTdCNO8hpUUq','member',NULL,NULL,NULL,NULL,NULL),(29,'register3@gmail.com','$2a$10$YWP6RMVF1KvWy7/i8EATXOBAz2ruJR18AoMgkpAnlgVd/SrTALZci','member',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'cecilia@gmail.com','$2a$10$bWdpw2PMypVXfabbSAe3EePh8P8.HQTLwb.gDlyzUsLj7VZ/AVTe.','manager','0400123456','Cecilia','Zhang','South Brisbane, 4001','0f2cbbe4-1271-49df-b211-3c1d462f8402'),(2,'jack@gmail.com','$2a$10$vtVH.9JHIyidWptMQNsOVOHhKh0KRB6sZr.NAE0P1jI9XmfSFaEWS','trainer','0400000002','Jack','Doe','Brisbane City 4000',NULL),(3,'jane@gmail.com','$2a$10$qqIUtwW7kz9lrKlo/AR9leanYx2jwqhr/x3uiYSZubXyjyk5keAh6','trainer',NULL,'Jane','',NULL,NULL),(4,'jess@gmail.com','$2a$10$uEpodYzTI9g88TGzmeLVIeyR3X4aN4n//EForHmHqrVGWGL.B/3qu','trainer',NULL,'Jess',NULL,NULL,NULL),(5,'olivia@gmail.com','$2a$10$HNlhZyj7G73FOnuwmzHq3ebpGk7OS5t9CtLey5qYhOWdp1/T.lf8G','trainer',NULL,'Olivia',NULL,NULL,NULL),(6,'sharon@gmail.com','$2a$10$xGFN0hgyD4H0B4bmj5YwvO3kXjawToddWEKQvBwfmcyyA7q.Cu5c.','trainer',NULL,'Sharon',NULL,NULL,NULL),(7,'jill1@gmail.com','$2a$10$rFOldrG.t2hzCt6f6HJAwOuyWe.LXxGZHXKdkQt826rQnuXtdCd9a','member',NULL,'Jill','Doe',NULL,'8b727ffc-b498-4be8-a53e-57c8701c619e'),(9,'jill2@gmail.com','$2a$10$8MJw4nLQHzktpC8t7gzx9uLYpbeH02PuxjYkvutkU7dNkQFWuKYTO','member',NULL,'Jill','Smith',NULL,NULL),(12,'jack2@gmail.com','$2a$10$G3.y4fXonH1r2FxNQ.om3.DAB0RJ0gl/zaHVgFxdmt59FUyIwA35e','member',NULL,NULL,NULL,NULL,NULL),(13,'jack3@gmail.com','$2a$10$ZmfOQHm3MzOI4clPOeooo.Y6K4GWt.rW27KcDnUcKrMB6makij4Qu','member',NULL,NULL,NULL,NULL,'d23f42c1-188a-416c-84a0-f50ed13aefd8'),(14,'jack4@gmail.com','$2a$10$73RFInddqcAky7Q1gfu/E.CDVBIcXsQo3iJX5wIhJLgyZx5PSOzW6','member',NULL,NULL,NULL,NULL,'d0c9e881-63ed-41b5-acce-6f3799ab2331'),(15,'jack5@gmail.com','$2a$10$sxWM5c506VdmMWIGMXw2vuvfkt7TTvP/yxmHv.lA2QAAQtFGefmDK','member',NULL,NULL,NULL,NULL,NULL),(20,'test@gmail.com','$2a$10$CM5eavOLOhuJlx.1ccHsS.JSzWx6dVaP6PMafak0EaNdYvCDZ2q0O','member',NULL,NULL,NULL,NULL,NULL),(27,'register@gmail.com','$2a$10$FiKukq3BWzyjhqEFJKHeZ.s8SAJoUCXnGbmpoQKeT/TY6wa4FdEg6','member',NULL,NULL,NULL,NULL,NULL),(28,'register2@gmail.com','$2a$10$REfgzMpS8u.zbGQtFf9BSOK0Pa1d9eE1dDR6muBRxgTdCNO8hpUUq','member',NULL,NULL,NULL,NULL,NULL),(29,'register3@gmail.com','$2a$10$YWP6RMVF1KvWy7/i8EATXOBAz2ruJR18AoMgkpAnlgVd/SrTALZci','member',NULL,NULL,NULL,NULL,NULL),(34,'member@gmail.com','$2a$10$vT83ELQCPsv.7t3QuJsYw.i6pJPqwLqTaaRaU6e53qTffjJjJSk4a','member',NULL,'Member','One',NULL,NULL),(36,'member2@gmail.com','$2a$10$pwQ7EjfeWQpZCK6Lg8aYSOEQFjqg82OULa.4b2Y8tQODYHU9melXS','member',NULL,'Member2','Two',NULL,NULL),(37,'member3@gmail.com','$2a$10$LVKEGjm83vmD3XYbzeIVcuXZzgojOSZl0v2M7txTgKnkdxft/xnui','member',NULL,'Member3','Three',NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -204,4 +204,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-25 22:37:18
+-- Dump completed on 2024-04-26 22:59:10
