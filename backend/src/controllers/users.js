@@ -80,26 +80,34 @@ userController.get("/id/:id", (req, res) => {
 
 userController.get("/authentication/:authKey", (req, res) => {
     const key = req.params.authKey
-    Users.getByAuthenticationKey(key).then(result => {
-        if (result) {
-            res.status(200).json({
-                status: 200,
-                message: "Got user by authentication_key: " + key,
-                user: result
+    if (key && key != "undefined") {
+        Users.getByAuthenticationKey(key).then(result => {
+            if (result) {
+                res.status(200).json({
+                    status: 200,
+                    message: "Got user by authentication_key: " + key,
+                    user: result
+                })
+            } else {
+                res.status(404).json({
+                    status: 404,
+                    message: "No matching user with authentication_key: " + key
+                })
+            }
+        }).catch(error => {
+            res.status(500).json({
+                status: 500,
+                message: "Failed to get user by authentication_key: " + key,
+                error: error
             })
-        } else {
-            res.status(404).json({
-                status: 404,
-                message: "No matching user with authentication_key: " + key
-            })
-        }
-    }).catch(error => {
-        res.status(500).json({
-            status: 500,
-            message: "Failed to get user by authentication_key: " + key,
-            error: error
         })
-    })
+    } else {
+        res.status(400).json({
+            status: 404,
+            message: "AuthenticationKey is null"
+        })
+    }
+    
 })
 
 
@@ -186,7 +194,7 @@ userController.patch("/:id", async (req, res) => {
     const userById = await Users.getById(userId)
     const userByEmail = await Users.getByEmail(userData.email)
 
-    if (userById && userByEmail && userById != userByEmail) {
+    if (userById && userByEmail && userById.id != userByEmail.id) {
         res.status(409).json({
             status: 409,
             message: "Email has been used"

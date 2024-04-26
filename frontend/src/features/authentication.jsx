@@ -19,7 +19,7 @@ export function AuthenticationProvider({ router, children }) {
             const authenticationKey = localStorage.getItem("authenticationKey")
             if (authenticationKey) {
                 getUserByAuthenticationKey(authenticationKey)
-                    .then(user => {    // user might be null
+                    .then(user => { // user might be null
                         setAuthenticatedUser(user)
                     })
                     .catch(error => {
@@ -63,7 +63,7 @@ export function useAuthentication() {
     async function logout() {
         localStorage.removeItem("authenticationKey")
         if (authenticatedUser) {
-            return apiLogout(authenticatedUser.authentication_key)   // For Users, it's not authenticationKey
+            return apiLogout(authenticatedUser.authentication_key)   // For Users, it's not authenticationKey, which caused bugs!
                 .then(result => {
                     setAuthenticatedUser(null)
                     return Promise.resolve(result.message)
@@ -75,7 +75,7 @@ export function useAuthentication() {
 
     async function refresh() {
         if (authenticatedUser) {
-            return getUserByAuthenticationKey(authenticatedUser.authenticationKey)
+            return getUserByAuthenticationKey(authenticatedUser.authentication_key) // For Users, it's not authenticationKey
                 .then(user => {
                     setAuthenticatedUser(user)
                     return Promise.resolve("User refreshed")

@@ -14,10 +14,17 @@ export default function UserBookingsList() {
     // console.log(authenticationKey)
     // const [user, setUser] = useState(2)
     const [user, login, logout] = useAuthentication()
-
+    const [name, setName] = useState("")
     const [bookings, setBookings] = useState([])
     const [selectedBookingId, setSelectedBookingId] = useState()
     const [deletedBookingId, setDeletedBookingId] = useState()
+    const now = new Date()
+
+    useEffect(() => {
+        if (user) {
+            setName(user.first_name)
+        }
+    }, [user])
 
     useEffect(() => {
         if (user) {
@@ -35,7 +42,8 @@ export default function UserBookingsList() {
                             activityName: activity.name,
                             trainerName,
                             locationName: location.name,
-                            datetime: moment(datetime).format('lll')
+                            datetime: datetime,
+                            datetimeString :moment(datetime).format('lll'),
                         })
                     }))
                     setBookings(bookingsWithExtras)
@@ -53,7 +61,7 @@ export default function UserBookingsList() {
     }, [selectedBookingId])
 
     return <>
-        <Header />
+        <Header userFirstName={name}/>
         <div className="flex-col">
             <div className="badge  badge-outline badge-primary text-l ml-2">My Bookings</div>
             <table className="table mb-40">
@@ -67,11 +75,13 @@ export default function UserBookingsList() {
                 </thead>
                 <tbody>
                     {bookings.map(booking => 
-                        <tr key={booking.id} className="hover">
+                        <tr key={booking.id} 
+                            className={new Date(booking.datetime) < now ? "bg-neutral-content" : "hover"} 
+                        >
                             <td>{booking.activityName}</td>
                             <td>{booking.trainerName}</td>
                             <td>{booking.locationName}</td>
-                            <td>{booking.datetime}</td>
+                            <td>{booking.datetimeString}</td>
                             <td><button className="btn btn-outline btn-sm btn-primary"
                             onClick={() => setSelectedBookingId(booking.id)}>X</button></td>    
                         </tr>

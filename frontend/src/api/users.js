@@ -42,7 +42,7 @@ export async function getUserNameById(userId) {
 
 export async function getUserById(userId) {
     const response = await fetch(
-        API_URL + `/users/${userId}`,
+        API_URL + `/users/id/${userId}`,
         {
             method: "GET",
             headers: {

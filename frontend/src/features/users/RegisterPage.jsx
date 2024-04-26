@@ -29,7 +29,7 @@ export default function RegisterPage() {
             setStatusMessage(result.message)
             login(formData.email, formData.password).then(result => {
                 setStatusMessage(result.message)
-                navigate("/bookings")
+                navigate("/profile")
             })
             // TODO: If the registration was successful
             // try and automatically login the user

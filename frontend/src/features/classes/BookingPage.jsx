@@ -19,8 +19,15 @@ export default function BookingPage() {
     const [trainers, setTrainers] = useState([])
     const [statusMessage, setStatusMessage] = useState("")
     const [user, setUser] = useState(null)
+    const [name, setName] = useState("")
 
     const authenticationKey = localStorage.getItem("authenticationKey")
+
+    useEffect(() => {
+        if (user) {
+            setName(user.first_name)
+        }
+    }, [user])
 
     useEffect(() => {
         Users.getUserByAuthenticationKey(authenticationKey).then(result => {
@@ -98,9 +105,9 @@ export default function BookingPage() {
     }
 
     return <>
-        <Header />
+        <Header userFirstName={name}/>
         <div className="mb-40">
-            <h2 className="text-xl text-center mb-5">Create Booking</h2>
+            <h2 className="text-xl text-center mb-5">Make A Booking</h2>
             <div className="text-center mb-5">
                 <h3 className="badge badge-primary m-2">{activity.name ? activity.name + "(" : ""}
                     {activity.duration ? activity.duration + "min)" : ""}</h3>

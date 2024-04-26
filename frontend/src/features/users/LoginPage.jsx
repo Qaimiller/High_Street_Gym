@@ -25,7 +25,7 @@ export default function LoginPage() {
 
         login(formData.email, formData.password).then(result => {
             setStatusMessage("Login successful!")
-            navigate("/bookings")
+            navigate("/profile")
         }).catch(error => {
             setStatusMessage("Login failed: " + error)
         })

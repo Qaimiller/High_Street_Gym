@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import * as Blogs from "../../api/blogs.js"
 import { useAuthentication } from "../authentication.jsx"
@@ -13,6 +13,13 @@ export default function BlogCreatePage() {
         content: ""
     })
     const [statusMessage, setStatusMessage] = useState("")
+    const [name, setName] = useState("")
+
+    useEffect(() => {
+        if (user) {
+            setName(user.first_name)
+        }
+    }, [user])
 
     function onBlogSubmit(e) {
         e.preventDefault()
@@ -33,7 +40,7 @@ export default function BlogCreatePage() {
     }
 
     return <>
-        <Header />
+        <Header userFirstName={name}/>
         {/* <div className="flex h-screen"> */}
             {/* <div className=""> */}
                 <form className="flex-col items-center flex w-full" onSubmit={onBlogSubmit}>

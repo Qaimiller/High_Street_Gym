@@ -3,7 +3,7 @@
     <!ELEMENT trainers-upload (trainers)>
     <!ATTLIST trainers-upload operation (insert|update) "insert">
     <!ELEMENT trainers (trainer+)>
-    <!ELEMENT trainer (id?, email, password, role, phone, first_name, last_name, address)>
+    <!ELEMENT trainer (id?, email, password, role, phone, first_name, last_name?, address?)>
     <!ELEMENT id (#PCDATA)>
     <!ELEMENT email (#PCDATA)>
     <!ELEMENT password (#PCDATA)>

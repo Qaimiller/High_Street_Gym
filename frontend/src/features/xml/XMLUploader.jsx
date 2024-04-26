@@ -47,7 +47,7 @@ export function XMLUploader({ onUploadSuccess, uploadUrl, disabled = false }) {
         <form onSubmit={uploadFile}>
             <div className="form-control m-2">
                 <label className="label">
-                    <span className="text-md">XML File Import</span>
+                    <span className="text-md">XML File Upload</span>
                 </label>
                 <div className="">
                     <input 

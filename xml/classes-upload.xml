@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE classes-upload [
+    <!ELEMENT classes-upload (classes)>
+    <!ATTLIST classes-upload operation (insert|update) "insert">
+    <!ELEMENT classes (class-session+)>
+    <!ELEMENT class-session (id?, datetime, location_id, activity_id, trainer_user_id)>
+    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT datetime (#PCDATA)>
+    <!ELEMENT location_id (#PCDATA)>
+    <!ELEMENT activity_id (#PCDATA)>
+    <!ELEMENT trainer_user_id (#PCDATA)>
+]>
+<classes-upload operation="insert">
+    <classes>
+        <class-session>
+            <datetime>2024-05-04 05:30:00</datetime>
+            <location_id>2</location_id>
+            <activity_id>5</activity_id>
+            <trainer_user_id>5</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-05-04 06:20:00</datetime>
+            <location_id>2</location_id>
+            <activity_id>2</activity_id>
+            <trainer_user_id>6</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-05-04 06:20:00</datetime>
+            <location_id>2</location_id>
+            <activity_id>1</activity_id>
+            <trainer_user_id>2</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-05-04 09:45:00</datetime>
+            <location_id>2</location_id>
+            <activity_id>1</activity_id>
+            <trainer_user_id>2</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-05-04 05:15:00</datetime>
+            <location_id>2</location_id>
+            <activity_id>6</activity_id>
+            <trainer_user_id>5</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-05-04 09:40:00</datetime>
+            <location_id>2</location_id>
+            <activity_id>3</activity_id>
+            <trainer_user_id>6</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-05-04 05:30:00</datetime>
+            <location_id>1</location_id>
+            <activity_id>5</activity_id>
+            <trainer_user_id>5</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-05-04 06:20:00</datetime>
+            <location_id>1</location_id>
+            <activity_id>2</activity_id>
+            <trainer_user_id>6</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-05-04 06:20:00</datetime>
+            <location_id>1</location_id>
+            <activity_id>1</activity_id>
+            <trainer_user_id>2</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-05-04 09:45:00</datetime>
+            <location_id>1</location_id>
+            <activity_id>1</activity_id>
+            <trainer_user_id>2</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-05-04 05:15:00</datetime>
+            <location_id>1</location_id>
+            <activity_id>6</activity_id>
+            <trainer_user_id>5</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-05-04 09:40:00</datetime>
+            <location_id>1</location_id>
+            <activity_id>3</activity_id>
+            <trainer_user_id>6</trainer_user_id>
+        </class-session>
+    </classes>
+</classes-upload>

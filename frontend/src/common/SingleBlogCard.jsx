@@ -31,7 +31,7 @@ export function SingleBlogCard({ blogId }) {
         })
     }, [])
 
-    return <div className="card w-80 shadow-xl">
+    return <div className="card w-full shadow-xl">
         <div className="card-body">
             <h2 className="card-title">{blog.title}</h2>
             <span className="badge badge-primary">{blog.datetime + "  By " +blog.userName}</span>

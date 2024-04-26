@@ -6,7 +6,7 @@ import Nav from "../../common/Nav.jsx"
 
 export default function ProfilePage() {
     const [user, , , refresh] = useAuthentication()  // async?
-    console.log("user"+user)
+    const [name, setName] = useState("")
     const [statusMessage, setStatusMessage] = useState("")
     // const [userId, setUserId] = useState()
     const [formData, setFormData] = useState({  // Same structure with user
@@ -20,7 +20,12 @@ export default function ProfilePage() {
         address: "",
         authentication_key: null
     })
-    console.log("initialform"+formData)
+
+    useEffect(() => {
+        if (user) {
+            setName(user.first_name)
+        }
+    }, [user])
 
     useEffect(() => {
         if (user) {
@@ -28,7 +33,6 @@ export default function ProfilePage() {
             Users.getUserById(user.id).then(result => {
                 setFormData(result)
                 console.log("formdata"+formData)
-
             })
         }
     }, [user])
@@ -46,8 +50,14 @@ export default function ProfilePage() {
             setStatusMessage(result.message)
             if (result.user) {
                 setFormData(result.user)
+                console.log("beforeRefresh")
+                console.log(user.first_name)
+                refresh().then(result => {
+                    console.log("afterRefresh")
+                    console.log(user.first_name)  // why this is same as beforeRefresh? 
+                })   
             }
-        })    
+        })   
     }
 
     function clear(e) {
@@ -68,7 +78,7 @@ export default function ProfilePage() {
     }
 
     return <div>
-        <Header />
+        <Header userFirstName={name}/>
         <div className="flex justify-center">
             <form className="mb-40 flex-grow max-w-md">
                 <div className="text-xl mb-8 text-center">Personal Details</div>
@@ -79,7 +89,8 @@ export default function ProfilePage() {
                     <input 
                         type="text"
                         className="input input-bordered"
-                        value={formData.first_name}
+                        placeholder="Please put in your first name"
+                        value={formData.first_name ?? ""}
                         onChange={(e) => setFormData({...formData, first_name: e.target.value})}
                     />
                 </div>
@@ -90,7 +101,8 @@ export default function ProfilePage() {
                     <input 
                         type="text"
                         className="input input-bordered"
-                        value={formData.last_name}
+                        placeholder="Please put in your last name"
+                        value={formData.last_name ?? ""}
                         onChange={(e) => setFormData({...formData, last_name: e.target.value})}
                     />
                 </div>
@@ -101,7 +113,8 @@ export default function ProfilePage() {
                     <input 
                         type="text"
                         className="input input-bordered"
-                        value={formData.phone}
+                        placeholder="Please put in your contact number"
+                        value={formData.phone ?? ""}
                         onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     />
                 </div>
@@ -112,7 +125,8 @@ export default function ProfilePage() {
                     <input 
                         type="text"
                         className="input input-bordered"
-                        value={formData.address}
+                        placeholder="Please put in your home address"
+                        value={formData.address ?? ""}
                         onChange={(e) => setFormData({...formData, address: e.target.value})}
                     />
                 </div>
