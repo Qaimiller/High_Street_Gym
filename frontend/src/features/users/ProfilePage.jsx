@@ -79,7 +79,7 @@ export default function ProfilePage() {
 
     return <div>
         <Header userFirstName={name}/>
-        <div className="flex justify-center">
+        <div className="flex justify-center mx-2">
             <form className="mb-40 flex-grow max-w-md">
                 <div className="text-xl mb-8 text-center">Personal Details</div>
                 <div className="form-control">

@@ -8,6 +8,7 @@ import * as Locations from "../../api/locations.js"
 import Nav from "../../common/Nav.jsx"
 import Header from "../../common/Header.jsx"
 import { useAuthentication } from "../authentication.jsx"
+import Spinner from "../../common/Spinner.jsx"
 
 export default function UserBookingsList() {
     // const authenticationKey = localStorage.getItem("authenticationKey")
@@ -19,6 +20,7 @@ export default function UserBookingsList() {
     const [selectedBookingId, setSelectedBookingId] = useState()
     const [deletedBookingId, setDeletedBookingId] = useState()
     const now = new Date()
+    const [showSpinner, setShowSpinner] = useState(false)
 
     useEffect(() => {
         if (user) {
@@ -28,6 +30,7 @@ export default function UserBookingsList() {
 
     useEffect(() => {
         if (user) {
+            setShowSpinner(true)
             Bookings.getBookingsByUserId(user.id).then(async bookingsResult => {
                 if (bookingsResult) {
                     const bookingsWithExtras = await Promise.all(bookingsResult.map(async booking => {
@@ -46,6 +49,7 @@ export default function UserBookingsList() {
                             datetimeString :moment(datetime).format('lll'),
                         })
                     }))
+                    setShowSpinner(false)
                     setBookings(bookingsWithExtras)
                 }    
             })
@@ -62,32 +66,36 @@ export default function UserBookingsList() {
 
     return <>
         <Header userFirstName={name}/>
-        <div className="flex-col">
-            <div className="badge  badge-outline badge-primary text-l ml-2">My Bookings</div>
-            <table className="table mb-40">
-                <thead>
-                    <tr>
-                        <th>Activity</th>
-                        <th>Trainer</th>
-                        <th>Location</th>
-                        <th>Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {bookings.map(booking => 
-                        <tr key={booking.id} 
-                            className={new Date(booking.datetime) < now ? "bg-neutral-content" : "hover"} 
-                        >
-                            <td>{booking.activityName}</td>
-                            <td>{booking.trainerName}</td>
-                            <td>{booking.locationName}</td>
-                            <td>{booking.datetimeString}</td>
-                            <td><button className="btn btn-outline btn-sm btn-primary"
-                            onClick={() => setSelectedBookingId(booking.id)}>X</button></td>    
+        <div className="flex-col mx-1">
+            <div className="text-xl text-center">My Bookings</div>
+            {showSpinner == true 
+                ? <Spinner />
+                : <table className="table mb-40">
+                    <thead>
+                        <tr>
+                            <th>Activity</th>
+                            <th>Trainer</th>
+                            <th>Location</th>
+                            <th>Time</th>
+                            <th>Cancel</th>
                         </tr>
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {bookings.map(booking => 
+                            <tr key={booking.id} 
+                                className={new Date(booking.datetime) < now ? "bg-neutral-content" : "hover"} 
+                            >
+                                <td>{booking.activityName}</td>
+                                <td>{booking.trainerName}</td>
+                                <td>{booking.locationName}</td>
+                                <td>{booking.datetimeString}</td>
+                                <td><button className="btn btn-outline btn-sm btn-primary"
+                                onClick={() => setSelectedBookingId(booking.id)}>X</button></td>    
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            }            
         </div>
         <Nav />
     </>

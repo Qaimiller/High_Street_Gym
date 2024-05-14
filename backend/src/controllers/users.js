@@ -1,5 +1,6 @@
 import { Router } from "express"
 import bcrypt from "bcryptjs"
+import validator from "validator"
 import { v4 as uuid4 } from "uuid"
 import xml2js from "xml2js"
 import * as Users from "../models/users.js"

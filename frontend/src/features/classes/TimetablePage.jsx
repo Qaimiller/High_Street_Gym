@@ -22,14 +22,14 @@ export default function TimetablePage() {
     }, [user])
 
     return <>
-        <div className="flex-col">
             <Header userFirstName={name}/>
-            <div className="ml-8 mb-40 flex flex-col">
-                <div className="badge badge-outline mt-2 badge-neutral">Timetable for next 14 days</div>
+            <div className="flex-col">
+            <div className="mb-40 flex flex-col items-center">
+                <div className="text-xl text-center">Timetable for Next 14 Days</div>
                 <div className="badge badge-outline mt-2 badge-secondary">Click on activity name to book</div>
                 {days.map(day => <DailyActivitySection key={day} date={day}/>)} 
             </div>
-            <Nav />
         </div>
+        <Nav />
     </>
 }

@@ -10,6 +10,8 @@ import BlogCreatePage from "./features/blogs/BlogCreatePage";
 import HomePage from "./features/HomePage";
 import { SingleBlogCard } from "./common/SingleBlogCard";
 import BlogListPage from "./features/blogs/BlogListPage";
+import Spinner from "./common/Spinner";
+import { RestrictedRoute } from "./common/RestrictedRoute";
 
 
 const router = createBrowserRouter([
@@ -33,7 +35,9 @@ const router = createBrowserRouter([
         element: <UserBookingsList />
     }, {
         path: "/upload",
-        element: <XMLUploadPage />
+        element: <RestrictedRoute allowedRoles={["manager"]}>
+                <XMLUploadPage />
+        </RestrictedRoute>
     }, {
         path: "/profile",
         element: <ProfilePage />
@@ -46,6 +50,9 @@ const router = createBrowserRouter([
     }, {
         path: "/blogs",
         element: <BlogListPage />
+    }, {
+        path: "spinner",
+        element: <Spinner />
     }
 ])
 

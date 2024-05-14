@@ -54,7 +54,7 @@ export function XMLUploader({ onUploadSuccess, uploadUrl, disabled = false }) {
                         ref={uploadInputRef}
                         type="file"
                         disabled={disabled}
-                        className="file-input file-input-bordered file-input-primary mr-2" />
+                        className="file-input file-input-bordered file-input-primary my-2" />
                     <button disabled={disabled} className="btn btn-secondary">Upload</button>
                 </div>
                 <label className="label">

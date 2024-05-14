@@ -16,12 +16,12 @@ export default function XMLUploadPage() {
 
     return <div>
         <Header userFirstName={name}/>
-        <div>
-            <h2 className="badge badge-outline badge-primary text-l ml-2">Upload Classes</h2>
+        <div className="flex flex-col items-center">
+            <h2 className="text-xl text-center">Upload Classes</h2>
             <XMLUploader uploadUrl={"/classes/upload-xml"}/>
         </div>
-        <div className="mt-10">
-            <h2 className="badge badge-outline badge-secondary text-l ml-2">Upload Trainers</h2>
+        <div className="flex flex-col items-center">
+            <h2 className="text-xl text-center">Upload Trainers</h2>
             <XMLUploader uploadUrl={"/users/upload-xml"}/>
         </div>
         <Nav />

@@ -43,9 +43,9 @@ export default function BlogCreatePage() {
         <Header userFirstName={name}/>
         {/* <div className="flex h-screen"> */}
             {/* <div className=""> */}
-                <form className="flex-col items-center flex w-full" onSubmit={onBlogSubmit}>
-                    <h2 className="text-3xl text-center mb-4">Post a new blog</h2>
-                    <div className="form-control">
+                <form className="flex-col items-center flex mx-2" onSubmit={onBlogSubmit}>
+                    <h2 className="text-xl text-center mb-4">Post a New Blog</h2>
+                    <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Title:</span>
                         </label>

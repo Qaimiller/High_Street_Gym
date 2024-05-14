@@ -5,7 +5,7 @@ export default function Header({ userFirstName }) {
                 High Street Gym
             </a>
         </div>
-        <div className="navbar-end">Hi, {userFirstName}</div>
+        <div className="navbar-end">Hi, {userFirstName ? userFirstName : "there"}</div>
         <div className="divider m-0"></div>
     </div>
 }

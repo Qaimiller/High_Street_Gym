@@ -44,7 +44,7 @@ export default function LoginPage() {
 
     return <div className="flex h-screen">
         <div className="m-auto">
-            <form className="flex-col max-w-md">
+            <form className="flex-col">
                 <h2 className="text-4xl font-bold mb-8 text-center">High Street Gym</h2>
                 <h2 className="text-3xl mb-4 text-center">Login</h2>
                 <div className="form-control">

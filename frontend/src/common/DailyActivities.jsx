@@ -40,7 +40,7 @@ export default function DailyActivitySection({date}) {
             {activities.map(item => 
                 <button 
                     onClick={() => navigate("/booking/" + date + "/" + item.id)}
-                    className="btn btn-outline btn-primary block mt-3" key={item.name}>{item.name}</button>
+                    className="btn btn-wide btn-outline btn-primary block mt-3" key={item.name}>{item.name}</button>
             )}
         </div>
     </div>

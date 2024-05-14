@@ -114,41 +114,40 @@ export default function BookingPage() {
                 <h4 className="badge badge-neutral">{moment(date).format('dddd')} {moment(date).format('ll')}</h4>
             </div>
             
-            <form className="grid justify-evenly gap-2" onSubmit={onBookingSubmit}>
-                <select className="select select-bordered" defaultValue={"Locations"}
-                    onChange={(e) => narrowDownClassesByLocation(classes, e.target.value)}>
-                    <option disabled>Locations</option>
-                    {locations.map(item => 
-                        <option value={item} key={item}>{item}</option>
-                    )}
-                </select>
-                <select className="select select-bordered" defaultValue={"Available Times"}
-                    onChange={(e) => narrowDownClassesByTime(classes, e.target.value)}>
-                    <option disabled>Available Times</option>
-                    {times.map(item => 
-                        <option value={item} key={item}>{item}</option>
-                    )}
-                </select>
-                <select className="select select-bordered" defaultValue={"Available Trainers"}
-                    onChange={(e) => narrowDownClassesByTrainer(classes, e.target.value)}>
-                    <option disabled>Available Trainers</option>
-                    {trainers.map(item => 
-                        <option value={item} key={item}>{item}</option>
-                    )}
-                </select>
-                <div className="my-2">
-                    <button className="btn btn-primary mr-6">Book</button>
+            <form className="mx-2" onSubmit={onBookingSubmit}>
+                <div className="flex flex-col gap-2 items-center">
+                    <select className="select select-bordered w-full max-w-xs" defaultValue={"Locations"}
+                        onChange={(e) => narrowDownClassesByLocation(classes, e.target.value)}>
+                        <option disabled>Locations</option>
+                        {locations.map(item => 
+                            <option value={item} key={item}>{item}</option>
+                        )}
+                    </select>
+                    <select className="select select-bordered w-full max-w-xs" defaultValue={"Available Times"}
+                        onChange={(e) => narrowDownClassesByTime(classes, e.target.value)}>
+                        <option disabled>Available Times</option>
+                        {times.map(item => 
+                            <option value={item} key={item}>{item}</option>
+                        )}
+                    </select>
+                    <select className="select select-bordered w-full max-w-xs" defaultValue={"Available Trainers"}
+                        onChange={(e) => narrowDownClassesByTrainer(classes, e.target.value)}>
+                        <option disabled>Available Trainers</option>
+                        {trainers.map(item => 
+                            <option value={item} key={item}>{item}</option>
+                        )}
+                    </select>
+                    <button className="btn btn-wide btn-primary my-2">Book</button>
                     <button 
-                        className="btn"
+                        className="btn btn-wide"
                         onClick={() => navigate("/timetable")}>Back</button>
                     <label className="label">
                         <span className="label-text-alt">{statusMessage}</span>
                     </label>
-                </div>
-                
+                </div>    
             </form>
             
-            <div>
+            <div className="mx-2">
                 {classes.map(item => 
                     <div key={item.id}>{item.id}</div>
                 )}

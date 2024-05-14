@@ -4,10 +4,11 @@ import background from "../../static/background.jpg"
 export default function HomePage() {
     const navigate = useNavigate()
     return <>
-        <div  className="flex h-screen bg-cover"
+        <div  className="hero min-h-screen"
             style={{backgroundImage: 'url(https://images.pexels.com/photos/3927385/pexels-photo-3927385.jpeg)'}}
         >
             {/* style={{ backgroundImage: `url(${background})` }} */}
+            <div className="hero-overlay bg-opacity-10"></div>
             <div className="hero-content flex-col m-auto">
                 <h2>Welcome to</h2>
                 <h2 className="text-4xl font-bold">High Steet Gym</h2>
