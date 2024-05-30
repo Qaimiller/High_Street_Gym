@@ -16,6 +16,14 @@ export function newActivity(
 
 
 
+export async function getAll() {
+    const [activityResults] = await db.query("SELECT * FROM activities")
+    return activityResults
+}
+
+
+
+
 export async function getById(activityId) {
     const [queryResult] = await db.query("SELECT * FROM activities WHERE id = ?", [activityId])
     if(queryResult.length > 0) {

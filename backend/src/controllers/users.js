@@ -7,6 +7,24 @@ import * as Users from "../models/users.js"
 
 const userController = Router()
 
+userController.get("/trainers", (req, res) => {
+    Users.getAllTrainers().then(result => {
+        res.status(200).json({
+            status: 200,
+            message: "Got all trainers",
+            trainers: result
+        })
+    }).catch(error => {
+        res.status(500).json({
+            status: 500,
+            message: "Server Error",
+            error: error
+        })
+    })
+})
+
+
+
 userController.post("/register", async (req, res) => {
     let userData = req.body
     // TODO: Implement request validation

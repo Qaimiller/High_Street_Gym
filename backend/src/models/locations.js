@@ -8,7 +8,6 @@ export function newLocation(id, name) {
 
 export async function getAll() {
     const [locationResults] = await db.query("SELECT * FROM locations")
-    console.log(locationResults)
     return locationResults
 }
 

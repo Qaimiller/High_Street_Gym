@@ -62,3 +62,26 @@ export async function getDailyClassesByActivityId(date, activityId) {
         // throw new Error("404 NOT FOUND")
     }
 }
+
+
+
+export async function getUpcomingClassesByTrainerId(trainerId) {
+    const response = await fetch(
+        API_URL + `/classes/trainerId/${trainerId}`,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+    )
+    const APIResponseObject = await response.json()
+    if (APIResponseObject.status == 200) {
+        const now = new Date()
+        return APIResponseObject.classes.filter((classSession) => {
+            return new Date(classSession.datetime) >= now
+        })
+    } else {
+        return Promise.reject(APIResponseObject.error)
+    }
+}

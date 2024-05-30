@@ -12,6 +12,7 @@ import { SingleBlogCard } from "./common/SingleBlogCard";
 import BlogListPage from "./features/blogs/BlogListPage";
 import Spinner from "./common/Spinner";
 import { RestrictedRoute } from "./common/RestrictedRoute";
+import TrainerClassesList from "./features/classes/TrainerClassesList";
 
 
 const router = createBrowserRouter([
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
     }, {
         path: "spinner",
         element: <Spinner />
+    }, {
+        path: "/trainer_classes/",
+        element: <RestrictedRoute allowedRoles={["trainer"]}>
+            <TrainerClassesList />
+        </RestrictedRoute> 
     }
 ])
 

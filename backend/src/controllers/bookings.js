@@ -22,9 +22,9 @@ bookingController.post("/create", (req, res) => {
             booking: booking
         })
     }).catch(error => {
-        res.status(500).json({
-            status: 500,
-            message: "Booking failed to be created",
+        res.status(400).json({
+            status: 400,
+            message: "Bookings already exist.",
             error: error
         })
     })

@@ -100,6 +100,8 @@ export default function BookingPage() {
             console.log(bookingData)
             Bookings.createBooking(bookingData).then(result => {
                 setStatusMessage("Booking created!")
+            }).catch(result => {
+                setStatusMessage("You cannot double book this class session!")
             })
         }    
     }

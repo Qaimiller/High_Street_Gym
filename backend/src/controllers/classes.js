@@ -75,6 +75,25 @@ classController.get("/activityId/:activityId", (req, res) => {
 
 
 
+classController.get("/trainerId/:trainerId", (req, res) => {
+    const trainerId = req.params.trainerId
+    Classes.getByTrainerId(trainerId).then(result => {
+        res.status(200).json({
+            status: 200,
+            message: "Got classes with trainer_id " + trainerId,
+            classes: result
+        })
+    }).catch(error => {
+        res.status(500).json({
+            status: 500,
+            message: "Failed to get classes by trainer id " + trainerId,
+            error: error
+        })
+    })
+})
+
+
+
 classController.post("/upload-xml", (req, res) => {
     if (req.files && req.files["xml-file"]) {     // This "xml-file" should comply with frontend formData.append type in body
         // Access the XML file as a string

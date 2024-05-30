@@ -33,6 +33,8 @@ export default function RegisterPage() {
             })
             // TODO: If the registration was successful
             // try and automatically login the user
+        }).catch(result => {
+            setStatusMessage(result)
         })
     }
 

@@ -21,7 +21,7 @@
             <role>trainer</role>
             <phone>0400123456</phone>
             <first_name>Trainer</first_name>
-            <last_name>New</last_name>
+            <last_name>One</last_name>
             <address>South Brisbane</address>
         </trainer>
         <trainer>
@@ -30,7 +30,7 @@
             <role>trainer</role>
             <phone>0400123456</phone>
             <first_name>Trainer</first_name>
-            <last_name>New</last_name>
+            <last_name>Two</last_name>
             <address>South Brisbane</address>
         </trainer>
     </trainers>

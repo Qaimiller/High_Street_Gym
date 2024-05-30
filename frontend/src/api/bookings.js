@@ -17,7 +17,7 @@ export async function createBooking(bookingData) {
     if (APIResponseObject.status == 200) {
         return APIResponseObject.booking
     } else {
-        return null
+        return Promise.reject(APIResponseObject.message)
     }
 }
 

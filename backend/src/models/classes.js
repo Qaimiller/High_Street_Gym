@@ -79,6 +79,17 @@ export async function getByTimeRangeAndActivityId(start, end, activityId) {
 
 
 
+export async function getByTrainerId(trainerId) {
+    const [queryResult] = await db.query(`SELECT * FROM classes WHERE trainer_user_id = ? ORDER BY datetime ASC`, [trainerId])
+    if (queryResult.length > 0) {
+        return queryResult
+    } else {
+        return []
+    }
+}
+
+
+
 // TODO: test this method
 export async function create(classSession) {
     return db.query(`

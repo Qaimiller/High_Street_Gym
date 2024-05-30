@@ -17,7 +17,11 @@ export function newBooking(
 
 
 export async function create(booking) {
-    return db.query(`INSERT INTO bookings 
+    const [existingBookings] = await db.query(`SELECT * FROM bookings WHERE user_id = ? AND class_id = ?`, [booking.user_id, booking.class_id])
+    if (existingBookings.length > 0) {
+        return Promise.reject("Bookings already exist.")
+    } else {
+        return db.query(`INSERT INTO bookings 
         (user_id, class_id, created_datetime)
         VALUES (?, ?, ?)
         `, [
@@ -25,10 +29,11 @@ export async function create(booking) {
                 booking.class_id,
                 booking.created_datetime
             ]
-    ).then(result => {
-        console.log(result)
-        return {...booking, id: result[0].insertId}
-    })
+        ).then(result => {
+            console.log(result)
+            return {...booking, id: result[0].insertId}
+        })
+    }    
 }
 
 

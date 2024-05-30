@@ -26,6 +26,13 @@ export function newUser(
 
 
 
+export async function getAllTrainers() {
+    const [trainerResults] = await db.query(`SELECT * FROM users WHERE role = "trainer"`)
+    return trainerResults
+}
+
+
+
 export async function create(user) {
     return db.query(`
         INSERT INTO users (email, password, role, phone, first_name, last_name, address)

@@ -6,7 +6,7 @@ export async function getLocationById(locationId) {
         {
             method: "GET",
             headers: {
-                'Content-Type': "applications/json"
+                'Content-Type': "application/json"
             }
         }
     )
@@ -18,4 +18,24 @@ export async function getLocationById(locationId) {
         return null
         // throw new Error("404 NOT FOUND")
     }    
+}
+
+
+
+export async function getAllLocations() {
+    const response = await fetch(
+        API_URL + `/locations`,
+        {
+            method: "GET",
+            headers: {
+                'Content-Type': "application/json"
+            }
+        }
+    )
+    const APIResponseObject = await response.json()
+    if (APIResponseObject.status == 200) {
+        return APIResponseObject.locations
+    } else {
+        return Promise.reject("Server Error")
+    }
 }

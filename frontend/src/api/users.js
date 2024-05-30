@@ -1,5 +1,25 @@
 import { API_URL } from "./api";
 
+export async function getAllTrainers() {
+    const response = await fetch(
+        API_URL + `/users/trainers`,
+        {
+            method: "GET",
+            headers: {
+                'Content-Type': "application/json"
+            }
+        }
+    )
+    const APIResponseObject = await response.json()
+    if (APIResponseObject.status == 200) {
+        return APIResponseObject.trainers
+    } else {
+        return Promise.reject("Server Error")
+    }
+}
+
+
+
 export async function registerUser(userData) {
     const response = await fetch(
         API_URL + "/users/register",
@@ -12,7 +32,11 @@ export async function registerUser(userData) {
         }
     )
     const APIResponseObject = await response.json()
-    return APIResponseObject
+    if (APIResponseObject.status == 200) {
+        return APIResponseObject
+    } else {
+        return Promise.reject(APIResponseObject.message)
+    }
 }
 
 
