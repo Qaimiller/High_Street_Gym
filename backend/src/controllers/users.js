@@ -27,7 +27,24 @@ userController.get("/trainers", (req, res) => {
 
 userController.post("/register", async (req, res) => {
     let userData = req.body
-    // TODO: Implement request validation
+
+    // validate email
+    if(!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(userData.email)) {
+        res.status(400).json({
+            status: 400,
+            message: "Invalid email"
+        })
+        return
+    }
+
+    // validate password
+    if (!userData.password.startsWith("$2a") && !/^[a-zA-Z0-9]{6,}$/.test(userData.password)) {
+        res.status(400).json({
+            status: 400,
+            message: "Password must be at least 6 characters long and only contain letters and numbers."
+        })
+        return
+    }
 
     const userAlreadyExists = await Users.getByEmail(userData.email)
     if (userAlreadyExists) {
@@ -133,7 +150,23 @@ userController.get("/authentication/:authKey", (req, res) => {
 
 userController.post("/login", (req, res) => {
     const loginData = req.body
-    // TODO: Implement request validation
+    // validate email
+    if(!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(loginData.email)) {
+        res.status(400).json({
+            status: 400,
+            message: "Invalid email"
+        })
+        return
+    }
+
+    // validate password
+    if (!loginData.password.startsWith("$2a") && !/^[a-zA-Z0-9]{6,}$/.test(loginData.password)) {
+        res.status(400).json({
+            status: 400,
+            message: "Password must be at least 6 characters long and only contain letters and numbers."
+        })
+        return
+    }
 
     Users.getByEmail(loginData.email).then(user => {
         if (user) {
@@ -220,7 +253,52 @@ userController.patch("/:id", async (req, res) => {
         })
         return
     }
-    // TODO: Implement request validation
+
+    // validate email
+    if(!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(userData.email)) {
+        res.status(400).json({
+            status: 400,
+            message: "Invalid email"
+        })
+        return
+    }
+
+    // validate password
+    if (!userData.password.startsWith("$2a") && !/^[a-zA-Z0-9]{6,}$/.test(userData.password)) {
+        res.status(400).json({
+            status: 400,
+            message: "Password must be at least 6 characters long and only contain letters and numbers."
+        })
+        return
+    }
+
+    // validate input first name
+    if (!/^[a-zA-Z0-9/ -]+$/.test(userData.first_name)) {
+        res.status(400).json({
+            status: 400,
+            message: "First name must only contain letters, numbers, spaces and dash."
+        })
+        return
+    }
+
+    // validate input last name
+    if (!/^[a-zA-Z0-9/ -]+$/.test(userData.last_name)) {
+        res.status(400).json({
+            status: 400,
+            message: "Last name must only contain letters, numbers, spaces and dash."
+        })
+        return
+    }
+
+    // validate input phone number
+    if (!/^[0-9/ -()]+$/.test(userData.phone)) {
+        res.status(400).json({
+            status: 400,
+            message: "Phone number must only contain numbers, spaces, dash and ()."
+        })
+        return
+    }
+
 
     // TODO: Enforce that users can only update their own user details. Do we have to?
 

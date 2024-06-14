@@ -19,9 +19,9 @@ export async function getClassById(classId) {
 
 
 export async function getDailyActivityIds(date) {
-    const startTime = new Date(new Date(date).setHours(0)).toISOString().slice(0,19).replace("T", " ")
+    const startTime = new Date(new Date(date).setHours(10)).toISOString().slice(0,19).replace("T", " ")
     console.log(startTime)
-    const endTime = new Date(new Date(date).setHours(23)).toISOString().slice(0,19).replace("T", " ")
+    const endTime = new Date(new Date(date).setHours(33)).toISOString().slice(0,19).replace("T", " ")
     console.log(endTime)
 
     const response = await fetch(

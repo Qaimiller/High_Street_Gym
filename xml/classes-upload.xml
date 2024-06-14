@@ -13,76 +13,76 @@
 <classes-upload operation="insert">
     <classes>
         <class-session>
-            <datetime>2024-05-31 05:30:00</datetime>
-            <location_id>2</location_id>
-            <activity_id>5</activity_id>
-            <trainer_user_id>5</trainer_user_id>
-        </class-session>
-        <class-session>
-            <datetime>2024-05-31 06:20:00</datetime>
-            <location_id>2</location_id>
-            <activity_id>2</activity_id>
-            <trainer_user_id>6</trainer_user_id>
-        </class-session>
-        <class-session>
-            <datetime>2024-05-31 06:20:00</datetime>
+            <datetime>2024-06-10 05:30:00</datetime>
             <location_id>2</location_id>
             <activity_id>1</activity_id>
             <trainer_user_id>4</trainer_user_id>
         </class-session>
         <class-session>
-            <datetime>2024-05-31 09:45:00</datetime>
+            <datetime>2024-06-10 05:30:00</datetime>
+            <location_id>2</location_id>
+            <activity_id>3</activity_id>
+            <trainer_user_id>6</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-06-10 06:20:00</datetime>
             <location_id>2</location_id>
             <activity_id>1</activity_id>
             <trainer_user_id>5</trainer_user_id>
         </class-session>
         <class-session>
-            <datetime>2024-05-31 05:15:00</datetime>
+            <datetime>2024-06-10 06:20:00</datetime>
             <location_id>2</location_id>
-            <activity_id>6</activity_id>
-            <trainer_user_id>6</trainer_user_id>
-        </class-session>
-        <class-session>
-            <datetime>2024-05-31 09:40:00</datetime>
-            <location_id>2</location_id>
-            <activity_id>3</activity_id>
+            <activity_id>2</activity_id>
             <trainer_user_id>4</trainer_user_id>
         </class-session>
         <class-session>
-            <datetime>2024-05-31 05:30:00</datetime>
-            <location_id>1</location_id>
-            <activity_id>5</activity_id>
-            <trainer_user_id>5</trainer_user_id>
+            <datetime>2024-06-10 06:20:00</datetime>
+            <location_id>2</location_id>
+            <activity_id>1</activity_id>
+            <trainer_user_id>6</trainer_user_id>
         </class-session>
         <class-session>
-            <datetime>2024-05-31 06:20:00</datetime>
-            <location_id>1</location_id>
+            <datetime>2024-06-10 09:45:00</datetime>
+            <location_id>2</location_id>
+            <activity_id>1</activity_id>
+            <trainer_user_id>4</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-06-10 15:15:00</datetime>
+            <location_id>2</location_id>
             <activity_id>2</activity_id>
-            <trainer_user_id>6</trainer_user_id>
-        </class-session>
-        <class-session>
-            <datetime>2024-05-31 06:20:00</datetime>
-            <location_id>1</location_id>
-            <activity_id>1</activity_id>
-            <trainer_user_id>2</trainer_user_id>
-        </class-session>
-        <class-session>
-            <datetime>2024-05-31 09:45:00</datetime>
-            <location_id>1</location_id>
-            <activity_id>1</activity_id>
-            <trainer_user_id>2</trainer_user_id>
-        </class-session>
-        <class-session>
-            <datetime>2024-05-31 05:15:00</datetime>
-            <location_id>1</location_id>
-            <activity_id>6</activity_id>
             <trainer_user_id>5</trainer_user_id>
         </class-session>
         <class-session>
-            <datetime>2024-05-31 09:40:00</datetime>
+            <datetime>2024-06-10 19:40:00</datetime>
+            <location_id>2</location_id>
+            <activity_id>2</activity_id>
+            <trainer_user_id>5</trainer_user_id>
+        </class-session>        
+        <class-session>
+            <datetime>2024-06-10 06:20:00</datetime>
             <location_id>1</location_id>
-            <activity_id>3</activity_id>
-            <trainer_user_id>6</trainer_user_id>
+            <activity_id>1</activity_id>
+            <trainer_user_id>3</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-06-10 09:45:00</datetime>
+            <location_id>1</location_id>
+            <activity_id>1</activity_id>
+            <trainer_user_id>3</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-06-10 15:15:00</datetime>
+            <location_id>1</location_id>
+            <activity_id>1</activity_id>
+            <trainer_user_id>3</trainer_user_id>
+        </class-session>
+        <class-session>
+            <datetime>2024-06-10 19:40:00</datetime>
+            <location_id>1</location_id>
+            <activity_id>1</activity_id>
+            <trainer_user_id>7</trainer_user_id>
         </class-session>
     </classes>
 </classes-upload>

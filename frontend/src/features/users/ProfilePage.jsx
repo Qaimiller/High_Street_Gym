@@ -47,9 +47,9 @@ export default function ProfilePage() {
         }
         setStatusMessage("Updating...")
         Users.updateUser(formData).then(result => {
-            setStatusMessage(result.message)
-            if (result.user) {
-                setFormData(result.user)
+            setStatusMessage("Updated successfully!")
+            if (result) {
+                setFormData(result)
                 console.log("beforeRefresh")
                 console.log(user.first_name)
                 refresh().then(result => {
@@ -57,6 +57,8 @@ export default function ProfilePage() {
                     console.log(user.first_name)  // why this is same as beforeRefresh? 
                 })   
             }
+        }).catch(result => {
+            setStatusMessage(result)
         })   
     }
 
@@ -163,5 +165,4 @@ export default function ProfilePage() {
         </div>
         <Nav />
     </div>
-
 }

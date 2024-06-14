@@ -168,10 +168,9 @@ export async function updateUser(user) {
     )
     const APIResponseObject = await response.json()
     console.log(APIResponseObject)
-    return APIResponseObject
-    // if (APIResponseObject.status == 200) {
-    //     return APIResponseObject.user
-    // } else {
-    //     return null
-    // }
+    if (APIResponseObject.status == 200) {
+        return APIResponseObject.user
+    } else {
+        return Promise.reject(APIResponseObject.message)
+    }
 }
